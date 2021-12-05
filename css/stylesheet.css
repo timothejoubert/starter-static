@@ -1,0 +1,172 @@
+
+/*************************/
+/* stylesheet de timothé */
+/*************************/
+:root{
+    --dark-color: #222222;
+    --light-color: #eeeeee;
+
+    --primary-color: #6f15ff;
+    --second-color: #c84a3f;
+    --third-color: #ecef4a;
+
+    --width-default: 1px;
+    --border-: solid var(--dark-color) var(--width-default);
+
+    --max-width: 900px;
+    --transi-2: 200ms;
+    --transi-3: 300ms;
+    --transi-4: 400ms;
+}
+
+
+/***********/
+/* COMMUNS */
+/***********/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+body{
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+h1, h2, h3, h4, h5, h6, p, a, span{
+    font-family: "Poppins", sans-serif;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+li{
+    list-style: none;
+}
+
+
+/***********/
+/* templates */
+/***********/
+.btn{
+    padding: 5px 10px;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+.btn-outline{
+    padding: 5px 10px;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    border: 1px solid var(--dark-color);
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.max-width{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/***********/
+/* content */
+/***********/
+.container-menu{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+nav ul{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+nav li + li{
+    margin-left: 20px;
+}
+
+
+.burger {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    border: none;
+    -webkit-transition: all var(--transi-2);
+    transition: all var(--transi-2);
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .burger span {
+    position: absolute;
+    display: block;
+    top: 50%;
+    width: 100%;
+    height: 3px;
+    background: var(--dark-color);
+    border-radius: 15px;
+    -webkit-transition: background var(--transi-2) var(--transi-2);
+    transition: background var(--transi-2) var(--transi-2);
+    -o-transition: background 0s 0s;
+    -webkit-transition-delay: var(--transi-3),0s;
+    transition-delay: var(--transi-3),0s;
+  }
+  .open .burger span {
+    background: 0 0 transparent;
+    transform: rotate(90deg);
+    -webkit-transition: all var(--transi-2) ease-in;
+    transition: all var(--transi-2) ease-in;
+    -o-transition: all 0s ease;
+      -webkit-transition-delay: 0s,0s;
+      transition-delay: 0s,0s;
+  }
+  .burger span::after,
+  .burger span::before {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark-color);
+    content: "";
+      border-radius: 5px;
+    -webkit-transition-duration: var(--transi-2),var(--transi-2);
+    transition-duration: var(--transi-2),var(--transi-2);
+    -webkit-transition-delay: var(--transi-3),0s;
+    transition-delay: var(--transi-3),0s;
+  }
+  .burger span::before {
+    top: -8px;
+    -webkit-transition-property: top,-webkit-transform;
+    transition-property: top,transform;
+  }
+  .burger span::after {
+    bottom: -8px;
+    -webkit-transition-property: bottom,-webkit-transform;
+    transition-property: bottom,transform;
+  }
+  
+  .open .burger span::after,
+  .open .burger span::before {
+    -webkit-transition-delay: 0s,var(--transi-3);
+    transition-delay: 0s,var(--transi-3);
+    background-color: var(--primary-color);
+  }
+  .open .burger span::before {
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .open .burger span::after {
+    bottom: 1px; /* Fix for codepen, set to zero for normal use */
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
